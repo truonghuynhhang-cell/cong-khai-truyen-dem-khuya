@@ -1,8 +1,8 @@
 name: run-private-code
 
 on:
+
   
-    
   workflow_dispatch: {}
   
 env:
@@ -51,7 +51,7 @@ jobs:
       SUB_FONT_SIZE: "56"
       SUB_OUTLINE: "6"
       SUB_SHADOW: "2"
-      SUB_MAX_CHARS_PER_LINE: "22"
+      SUB_MAX_CHARS_PER_LINE: "30"
 
       # giữa màn hình 720p
       SUB_POS_X: "640"
@@ -65,7 +65,7 @@ jobs:
 
 
       SUB_MODE: "first"
-      SUB_DURATION_SEC: "10000"
+      SUB_DURATION_SEC: "6000"
 
     steps:
       - name: Checkout wrapper (repo PUBLIC)
@@ -92,7 +92,7 @@ jobs:
       - name: Resolve parameters (support schedule without inputs)
         id: params
         run: |
-          repo="${{ inputs.private_repo }}"; [ -z "$repo" ] && repo="colfleshjadein2404997-oss/tesst-mc"; echo "repo=$repo" >> "$GITHUB_OUTPUT"
+          repo="${{ inputs.private_repo }}"; [ -z "$repo" ] && repo="truonghuynhhang-cell/truyen-dem-khuya"; echo "repo=$repo" >> "$GITHUB_OUTPUT"
           ref="${{ inputs.private_ref }}";   [ -z "$ref" ] && ref="main";                   echo "ref=$ref" >> "$GITHUB_OUTPUT"
           wd="${{ inputs.workdir }}";        [ -z "$wd" ]  && wd=".";                       echo "workdir=$wd" >> "$GITHUB_OUTPUT"
           privacy="${{ inputs.youtube_privacy }}"; [ -z "$privacy" ] && privacy="public";   echo "privacy=$privacy" >> "$GITHUB_OUTPUT"
